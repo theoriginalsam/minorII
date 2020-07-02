@@ -15,7 +15,7 @@ app.use(authRoutes);
 app.use(trackRoutes);
 
 const mongoUri =
-  "mongodb+srv://samir:samir@cluster0-sj8rp.mongodb.net/<dbname>?retryWrites=true&w=majority";
+  "mongodb+srv://minorii:minorii@cluster0.bki4l.mongodb.net/<dbname>?retryWrites=true&w=majority";
 if (!mongoUri) {
   throw new Error(
     `MongoURI was not supplied.  Make sure you watch the video on setting up Mongo DB!`
