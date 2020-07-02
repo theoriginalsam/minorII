@@ -9,7 +9,7 @@ const requireAuth = require("./middlewares/requireAuth");
 
 const app = express();
 
-consr PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(authRoutes);
 app.use(trackRoutes);
