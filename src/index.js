@@ -15,8 +15,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(createRoutes);
-app.use(authRoutes);
 app.use(deleteRoutes);
+app.use(authRoutes);
 
 const mongoUri =
   "mongodb+srv://minorii:minorii@cluster0.bki4l.mongodb.net/<dbname>?retryWrites=true&w=majority";

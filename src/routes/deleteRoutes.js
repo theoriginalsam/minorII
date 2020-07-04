@@ -5,12 +5,18 @@ const Food = mongoose.model("Food");
 
 const router = express.Router();
 
-router.post("/delete", async (req, res) => {
+router.delete("/delete/:_id", async (req, res) => {
   try {
     //
     // Get data
     const id = req.params._id;
-    let result = await Model.findOneAndRemove({ _id: id }).exec();
+    console.log(id);
+    let result = await Food.findByIdAndRemove(
+      { _id: id },
+      {
+        ...req.body,
+      }
+    ).exec();
     const status = res.statusCode;
 
     //
@@ -24,7 +30,7 @@ router.post("/delete", async (req, res) => {
     //
     // Error response
     res.send({
-      message: "Could not delete th item",
+      message: "Could not delete item",
       err: err,
     });
   }
