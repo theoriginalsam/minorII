@@ -1,0 +1,11 @@
+({
+  "id": 1,
+  "name": "Samir",
+  "category": "Samir",
+  "photo": "Samir",
+  "price": 5000000
+},
+{
+  "email": "samir_samir@yahoo.com",
+  "password": "Ilikeyou"
+})

@@ -1,9 +1,11 @@
 require("./models/User");
+require("./models/Food");
 
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const authRoutes = require("./routes/authRoutes");
+const createRoutes = require("./routes/createRoutes");
 
 const requireAuth = require("./middlewares/requireAuth");
 
@@ -11,6 +13,7 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
+app.use(createRoutes);
 app.use(authRoutes);
 
 const mongoUri =
