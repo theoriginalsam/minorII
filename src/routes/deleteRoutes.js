@@ -10,7 +10,7 @@ router.post("/delete", async (req, res) => {
     //
     // Get data
     const id = req.params._id;
-    let result = await Model.findOneAndRemove({ _id }).exec();
+    let result = await Model.findOneAndRemove({ _id: id }).exec();
     const status = res.statusCode;
 
     //
