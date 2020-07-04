@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const authRoutes = require("./routes/authRoutes");
 const createRoutes = require("./routes/createRoutes");
 const deleteRoutes = require("./routes/deleteRoutes");
+const getRoutes = require("./routes/getRoutes");
 
 const requireAuth = require("./middlewares/requireAuth");
 
@@ -16,6 +17,7 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(createRoutes);
 app.use(deleteRoutes);
+app.use(getRoutes);
 app.use(authRoutes);
 
 const mongoUri =
