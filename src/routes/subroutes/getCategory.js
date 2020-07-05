@@ -4,7 +4,7 @@ const express = require("express");
 
 const mongoose = require("mongoose");
 
-const Category = mongoose.model("Food");
+const Category = mongoose.model("Category");
 
 const router = express.Router();
 
