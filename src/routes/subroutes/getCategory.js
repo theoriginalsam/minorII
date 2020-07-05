@@ -8,7 +8,7 @@ const Category = mongoose.model("Category");
 
 const router = express.Router();
 
-router.route("/listCategory").get(requireAuth, function (req, res) {
+router.route("/listCategory").get(function (req, res) {
   Category.find({}, function (err, result) {
     if (err) {
       console.log(err);
