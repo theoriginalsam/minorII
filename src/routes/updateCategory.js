@@ -32,7 +32,7 @@ router.put("/update/:_id", async (req, res) => {
     //
     // Error response
     res.send({
-      message: "item could not be updated",
+      message: "item coul not be updated",
       err: err,
     });
   }
