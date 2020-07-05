@@ -1,11 +1,17 @@
 ({
-  "id": 1,
+ //food
   "name": "Samir",
   "category": "Samir",
   "photo": "Samir",
   "price": 5000000
 },
 {
+//category
+  "name": "Samir",
+  
+},
+{
+  //user
   "email": "samir_samir@yahoo.com",
   "password": "Ilikeyou"
 })
