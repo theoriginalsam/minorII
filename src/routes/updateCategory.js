@@ -11,7 +11,7 @@ const router = express.Router();
 router.put("/update/:_id", async (req, res) => {
   try {
     //
-    // Get data
+    // Get dat
     const _id = req.params._id;
     let result = await Food.findByIdAndUpdate(
       { _id },
