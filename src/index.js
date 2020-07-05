@@ -36,6 +36,7 @@ if (!mongoUri) {
 }
 mongoose.connect(mongoUri, {
   useNewUrlParser: true,
+  useFindAndModify: false,
   useCreateIndex: true,
   useUnifiedTopology: true,
 });
