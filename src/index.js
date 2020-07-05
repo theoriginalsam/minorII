@@ -1,5 +1,6 @@
 require("./models/User");
 require("./models/Food");
+require("./models/category");
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -8,6 +9,7 @@ const authRoutes = require("./routes/authRoutes");
 const createRoutes = require("./routes/createRoutes");
 const deleteRoutes = require("./routes/deleteRoutes");
 const getRoutes = require("./routes/getRoutes");
+const categoryroute = require("./routes/subroutes/categoryroute");
 
 const requireAuth = require("./middlewares/requireAuth");
 
@@ -18,6 +20,7 @@ app.use(bodyParser.json());
 app.use(createRoutes);
 app.use(deleteRoutes);
 app.use(getRoutes);
+app.use(categoryroute);
 app.use(authRoutes);
 
 const mongoUri =

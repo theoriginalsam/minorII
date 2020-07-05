@@ -1,4 +1,7 @@
+const requireAuth = require("../middlewares/requireAuth");
+
 const express = require("express");
+
 const mongoose = require("mongoose");
 
 const Food = mongoose.model("Food");
