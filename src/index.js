@@ -10,6 +10,7 @@ const createRoutes = require("./routes/createRoutes");
 const deleteRoutes = require("./routes/deleteRoutes");
 const getRoutes = require("./routes/getRoutes");
 const categoryroute = require("./routes/subroutes/categoryroute");
+const getcategory = require("./routes/subroutes/getCategory");
 
 const requireAuth = require("./middlewares/requireAuth");
 
@@ -21,6 +22,7 @@ app.use(createRoutes);
 app.use(deleteRoutes);
 app.use(getRoutes);
 app.use(categoryroute);
+app.use(getcategory);
 app.use(authRoutes);
 
 const mongoUri =
