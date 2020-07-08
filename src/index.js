@@ -11,6 +11,7 @@ const deleteRoutes = require("./routes/deleteRoutes");
 const getRoutes = require("./routes/getRoutes");
 const categoryroute = require("./routes/subroutes/categoryroute");
 const getcategory = require("./routes/subroutes/getCategory");
+const image = require("./routes/image");
 const updateCategory = require("./routes/updateCategory");
 
 const requireAuth = require("./middlewares/requireAuth");
@@ -26,6 +27,7 @@ app.use(categoryroute);
 app.use(getcategory);
 app.use(updateCategory);
 app.use(authRoutes);
+app.use(image);
 
 const mongoUri =
   "mongodb+srv://minorii:minorii@cluster0.bki4l.mongodb.net/<dbname>?retryWrites=true&w=majority";
