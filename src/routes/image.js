@@ -6,6 +6,7 @@ const logger = require("logger");
 const Food = mongoose.model("Food");
 var fs = require("fs");
 var multer = require("multer");
+const { fileURLToPath } = require("url");
 var upload = multer({ dest: "uploads/" }); //setting the default folder for multer
 //other imports and code will go here
 const router = express.Router();
@@ -17,7 +18,7 @@ router.post("/upload", upload.single("fileData"), (req, res, next) => {
     } else {
       res.send({
         message: "Sucessfully added image",
-        data: contents,
+        data: req.file.path,
       });
     }
   });
