@@ -17,7 +17,7 @@ router.post("/upload", upload.single("fileData"), (req, res, next) => {
       console.log("Error: ", err);
     } else {
       res.send({
-        message: "Sucessfully added image",
+        message: "Sucessfully added ",
         data: req.file.path,
       });
     }
