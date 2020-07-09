@@ -7,7 +7,7 @@ const Food = mongoose.model("Food");
 
 const router = express.Router();
 
-router.post("/create", requireAuth, async (req, res) => {
+router.post("/create", async (req, res) => {
   const name = req.body.name;
   const category = req.body.category;
   const photo = req.body.photo;
