@@ -32,8 +32,9 @@ router.post("/create", async (req, res) => {
       model: model,
     });
   } catch (err) {
-    console.log(err.message);
-    return res.send({ error: err.message.name });
+    if (err.name === "MongoError" && err.code === 11000)
+      return res.send({ error: "Food already Exists" });
+    else return res.send({ error: err.message });
   }
 });
 

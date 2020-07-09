@@ -22,7 +22,7 @@ var ItemSchema = new mongoose.Schema({
   },
 });
 
-ItemSchema.plugin(uniqueValidator, {
-  message: "Error, expected {PATH} to be unique.",
-});
+// ItemSchema.plugin(uniqueValidator, {
+//   message: "Error, expected {PATH} to be unique.",
+// });
 mongoose.model("Food", ItemSchema);
