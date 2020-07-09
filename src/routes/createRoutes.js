@@ -1,4 +1,5 @@
 const requireAuth = require("../middlewares/requireAuth");
+require("./image");
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -24,6 +25,7 @@ router.post("/create", async (req, res) => {
     //
     // Save
     await model.save();
+    console.log(res.body);
 
     res.send({
       message: "Item Created!",

@@ -12,7 +12,7 @@ var ItemSchema = new mongoose.Schema({
   },
 
   price: {
-    type: Number,
+    type: String,
     required: true,
   },
   photo: {
