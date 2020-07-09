@@ -16,6 +16,7 @@ router.post("/create", async (req, res) => {
 
   try {
     // Create model
+
     let model = new Food({
       name,
       category,
@@ -25,14 +26,14 @@ router.post("/create", async (req, res) => {
     //
     // Save
     await model.save();
-    console.log(res.body);
 
     res.send({
       message: "Item Created!",
       model: model,
     });
   } catch (err) {
-    return res.status(422).send({ error: "Something went wrong" });
+    console.log(err.message);
+    return res.send({ error: err.message.name });
   }
 });
 

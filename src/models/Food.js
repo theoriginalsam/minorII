@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+var uniqueValidator = require("mongoose-unique-validator");
 var ItemSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -19,5 +20,9 @@ var ItemSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
+});
+
+ItemSchema.plugin(uniqueValidator, {
+  message: "Error, expected {PATH} to be unique.",
 });
 mongoose.model("Food", ItemSchema);
