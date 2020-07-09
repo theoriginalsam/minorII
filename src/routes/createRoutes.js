@@ -28,7 +28,7 @@ router.post("/create", async (req, res) => {
     await model.save();
 
     res.send({
-      message: "Item Created!",
+      message: "Item Created",
       model: model,
     });
   } catch (err) {
