@@ -18,7 +18,7 @@ var ItemSchema = new mongoose.Schema({
   },
   photo: {
     type: String,
-    default: "",
+    required: true,
   },
 });
 

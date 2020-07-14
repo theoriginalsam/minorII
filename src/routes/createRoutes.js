@@ -4,14 +4,16 @@ require("./image");
 const express = require("express");
 const mongoose = require("mongoose");
 
+var multer = require("multer");
 const Food = mongoose.model("Food");
 
 const router = express.Router();
 
-router.post("/create", async (req, res) => {
+var upload = multer({ dest: "uploads/" });
+router.post("/create", upload.single("photo"), async (req, res) => {
   const name = req.body.name;
   const category = req.body.category;
-  const photo = req.file;
+  const photo = req.file.path;
   console.log(photo);
   const price = req.body.price;
 
