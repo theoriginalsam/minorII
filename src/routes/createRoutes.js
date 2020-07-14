@@ -11,7 +11,8 @@ const router = express.Router();
 router.post("/create", async (req, res) => {
   const name = req.body.name;
   const category = req.body.category;
-  const photo = req.body.photo;
+  const photo = req.file;
+  console.log(photo);
   const price = req.body.price;
 
   try {

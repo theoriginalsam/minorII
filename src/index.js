@@ -13,6 +13,7 @@ const categoryroute = require("./routes/subroutes/categoryroute");
 const getcategory = require("./routes/subroutes/getCategory");
 const image = require("./routes/image");
 const updateCategory = require("./routes/updateCategory");
+const multer = require("multer");
 
 const requireAuth = require("./middlewares/requireAuth");
 
@@ -28,6 +29,7 @@ app.use(getcategory);
 app.use(updateCategory);
 app.use(authRoutes);
 app.use(image);
+app.use(multer().single("photo"));
 
 const mongoUri =
   "mongodb+srv://minorii:minorii@cluster0.bki4l.mongodb.net/<dbname>?retryWrites=true&w=majority";
