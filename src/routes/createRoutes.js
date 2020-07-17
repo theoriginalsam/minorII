@@ -36,6 +36,7 @@ router.post("/create", upload.single("photo"), async (req, res) => {
     });
   } catch (err) {
     if (err.name === "MongoError" && err.code === 11000)
+      // this is another alternative to the unuqueValidator
       return res.send({ error: "Food already Exists!" });
     else return res.send({ error: err.message });
   }
