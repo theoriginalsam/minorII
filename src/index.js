@@ -35,7 +35,7 @@ app.use(getcategory);
 app.use(updateCategory);
 app.use(authRoutes);
 app.use(image);
-app.use(multer().single("photo"));
+app.use(multer().single("photo")); // same name should be used in the front end form where we require image or select the image
 
 const mongoUri =
   "mongodb+srv://minorii:minorii@cluster0.bki4l.mongodb.net/<dbname>?retryWrites=true&w=majority";
