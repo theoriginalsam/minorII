@@ -1,5 +1,6 @@
 var mongoose = require("mongoose");
 var uniqueValidator = require("mongoose-unique-validator");
+//validation for the unique trait in the db
 var ItemSchema = new mongoose.Schema({
   name: {
     type: String,
