@@ -27,6 +27,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Headers", "*");
   next();
 });
+
 app.use(createRoutes);
 app.use(deleteRoutes);
 app.use(getRoutes);
@@ -35,7 +36,7 @@ app.use(getcategory);
 app.use(updateCategory);
 app.use(authRoutes);
 app.use(image);
-app.use(multer().single("photo")); // same name should be used in the front end form where we require image or select the image
+// same name should be used in the front end form where we require image or select the image
 
 const mongoUri =
   "mongodb+srv://minorii:minorii@cluster0.bki4l.mongodb.net/<dbname>?retryWrites=true&w=majority";
