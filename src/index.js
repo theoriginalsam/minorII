@@ -53,7 +53,7 @@ mongoose.connection.on("connect successful", () => {
   console.log("Connected to mongo ");
 });
 mongoose.connection.on("error", (err) => {
-  console.error("Error connecting to mongo", err);
+  console.error("Error connecting to mongo DB ", err);
 });
 
 app.get("/", requireAuth, (req, res) => {
