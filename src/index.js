@@ -1,7 +1,7 @@
 require("./models/User");
 require("./models/Food");
 require("./models/category");
-
+const foodRouter = require("./routes/ItemRoute");
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -36,6 +36,9 @@ app.use(getcategory);
 app.use(updateCategory);
 app.use(authRoutes);
 app.use(image);
+
+//for future code readibility
+app.use("/", foodRouter);
 // same name should be used in the front end form where we require image or select the image
 
 const mongoUri =
