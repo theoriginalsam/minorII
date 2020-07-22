@@ -38,7 +38,7 @@ app.use(authRoutes);
 app.use(image);
 
 //for future code readibility
-app.use("/v1/", foodRouter);
+app.use("/v1", foodRouter);
 // same name should be used in the front end form where we require image or select the image
 
 const mongoUri =
