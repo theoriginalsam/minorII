@@ -9,14 +9,14 @@ const Food = mongoose.model("Food");
 
 const router = express.Router();
 
-// router.route("/list").get(function (req, res) {
-//   Food.find({}, function (err, result) {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       res.send(result);
-//     }
-//   });
-// });
+router.route("/list").get(function (req, res) {
+  Food.find({}, function (err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
 
 module.exports = router;
