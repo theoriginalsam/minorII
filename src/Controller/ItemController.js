@@ -1,12 +1,12 @@
 const Food = require("../models/Food");
 exports.getFood = async (req, res, next) => {
-  const result = await Food.find({}, (err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(result);
-    }
-  });
+  try {
+    const results = await Food.find();
+
+    res.send(results);
+  } catch (err) {
+    console.log(err.message);
+  }
 };
 exports.createFood = (req, res, next) => {};
 exports.updateFood = (req, res, next) => {};
