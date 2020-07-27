@@ -1,6 +1,6 @@
 const Food = require("../models/Food");
-exports.getFood = (req, res, next) => {
-  Food.find({}, function (err, result) {
+exports.getFood = async (req, res, next) => {
+  const result = await Food.find({}, (err) => {
     if (err) {
       console.log(err);
     } else {
