@@ -1,11 +1,11 @@
 const Food = require("../models/Food");
 exports.getFood = async (req, res, next) => {
   try {
-    const results = await Food.find();
+    const results = await Food.findMany();
 
     res.send(results);
   } catch (err) {
-    console.log(err.message);
+    res.status(500).send({ message: err.message });
   }
 };
 exports.createFood = (req, res, next) => {};
