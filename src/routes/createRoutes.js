@@ -1,5 +1,4 @@
 const requireAuth = require("../middlewares/requireAuth");
-require("./image");
 
 const express = require("express");
 const mongoose = require("mongoose");

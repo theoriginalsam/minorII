@@ -1,13 +1,42 @@
 const Food = require("../models/Food");
 exports.getFood = async (req, res, next) => {
   try {
-    const results = await Food.findMany();
+    const results = await Food.find();
 
     res.send(results);
   } catch (err) {
     res.status(500).send({ message: err.message });
   }
 };
-exports.createFood = (req, res, next) => {};
+exports.createFood = async (req, res, next) => {
+  const name = req.body.name;
+  const category = req.body.category;
+  const photo = req.file.path;
+  const price = req.body.price;
+  //just create the api to store image path in the data base
+  try {
+    // Create model
+
+    let model = new Food({
+      name,
+      category,
+      photo,
+      price,
+    });
+    //
+    // Save
+    await model.save();
+
+    res.send({
+      message: "Item Created",
+      model: model,
+    });
+  } catch (err) {
+    if (err.name === "MongoError" && err.code === 11000)
+      // this is another alternative to the unuqueValidator
+      return res.send({ error: "Food already Exists!" });
+    else return res.send({ error: err.message });
+  }
+};
 exports.updateFood = (req, res, next) => {};
 exports.deleteFood = (req, res, next) => {};
