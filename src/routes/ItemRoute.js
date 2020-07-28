@@ -9,6 +9,6 @@ var upload = multer({ dest: "uploads/" });
 router.get("/list", ItemController.getFood);
 router.post("/create", upload.single("photo"), ItemController.createFood);
 router.put("/update/:id", ItemController.updateFood);
-router.delete("/delete/:id", ItemController.deleteFood);
+router.delete("/delete/:_id", ItemController.deleteFood);
 
 module.exports = router;

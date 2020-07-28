@@ -13,7 +13,7 @@ router.delete("/delete/:_id", async (req, res) => {
     //
     // Get data
     const id = req.params._id;
-    console.log(id);
+
     let result = await Food.findByIdAndRemove(
       { _id: id },
       {
