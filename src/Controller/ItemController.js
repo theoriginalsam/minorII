@@ -48,6 +48,7 @@ exports.deleteFood = async (req, res, next) => {
       { _id: id },
       {
         ...req.body,
+        //what this part does is that it remove the body of the id
       }
     ).exec();
     const status = res.statusCode;
