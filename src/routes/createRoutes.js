@@ -43,3 +43,5 @@ router.post("/create", upload.single("photo"), async (req, res) => {
 });
 
 module.exports = router;
+
+// this has been implemented in the v1 so this file is unnecessary
