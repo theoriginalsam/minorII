@@ -13,7 +13,6 @@ const categoryroute = require("./routes/subroutes/categoryroute");
 const getcategory = require("./routes/subroutes/getCategory");
 
 const updateCategory = require("./routes/updateCategory");
-const multer = require("multer");
 
 const requireAuth = require("./middlewares/requireAuth");
 
