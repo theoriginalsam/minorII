@@ -30,8 +30,6 @@ router.delete("/delete/:_id", async (req, res) => {
       status: status,
     });
   } catch (err) {
-    //
-    // Error response
     res.send({
       message: "Could not delete item",
       err: err,
