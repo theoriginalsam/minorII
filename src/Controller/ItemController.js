@@ -69,4 +69,3 @@ exports.deleteFood = async (req, res, next) => {
     });
   }
 };
-exports.updateFood = (req, res, next) => {};

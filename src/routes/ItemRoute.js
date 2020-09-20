@@ -10,6 +10,5 @@ router.get("/list", ItemController.getFood);
 router.post("/create", upload.single("photo"), ItemController.createFood);
 
 router.delete("/delete/:_id", ItemController.deleteFood);
-router.put("/update/:id", ItemController.updateFood);
 
 module.exports = router;
