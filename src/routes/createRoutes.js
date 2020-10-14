@@ -14,7 +14,7 @@ router.post("/create", upload.single("photo"), async (req, res) => {
   const name = req.body.name;
   const category = req.body.category;
   //const photo = req.file.path;  //later for file
-  const photo = req.body.path;
+  const photo = req.body.photo;
   const price = req.body.price;
   //just create the api to store image path in the data base
   try {
