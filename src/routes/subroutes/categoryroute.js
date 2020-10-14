@@ -23,7 +23,7 @@ router.post("/addCategory", async (req, res) => {
       model: model,
     });
   } catch (err) {
-    return res.status(422).send({ error: "Something went wrong" });
+    return res.status(422).send({ error: "Something went horrible wrong" });
   }
 });
 
