@@ -15,7 +15,7 @@ router.post("/addCategory", async (req, res) => {
       name,
     });
     //
-    // Saveing the 
+   
     await model.save();
 
     res.send({
