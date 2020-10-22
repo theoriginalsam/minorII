@@ -8,6 +8,8 @@ const Food = mongoose.model("Food");
 
 const router = express.Router();
 
+//id is required to delete
+
 router.delete("/delete/:_id", async (req, res) => {
   try {
     //
