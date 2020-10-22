@@ -33,7 +33,7 @@ router.delete("/delete/:_id", async (req, res) => {
     });
   } catch (err) {
     res.send({
-      message: "Could not delete item because of error",
+      message: "Could not delete ",
       err: err,
     });
   }

@@ -12,3 +12,5 @@ router.post("/create", upload.single("photo"), ItemController.createFood);
 router.delete("/delete/:_id", ItemController.deleteFood);
 
 module.exports = router;
+
+//trying to create a different router to handle all routes
