@@ -1,6 +1,8 @@
 require("./models/User");
 require("./models/Food");
 require("./models/category");
+require('./models/cart')
+const carts = require('./routes/cart')
 const morgan = require('morgan');
 const foodRouter = require("./routes/ItemRoute");
 const express = require("express");
@@ -30,6 +32,7 @@ app.use((req, res, next) => {
 
 
 app.use(morgan('dev'));
+app.use(carts)
 app.use(createRoutes);
 app.use(deleteRoutes);
 app.use(getRoutes);
@@ -37,6 +40,7 @@ app.use(categoryroute);
 app.use(getcategory);
 app.use(updateCategory);
 app.use(authRoutes);
+
 
 //for future code readibility
 app.use("/v1", foodRouter);
