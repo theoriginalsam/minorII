@@ -34,7 +34,7 @@ router.post("/cart", (req, res, next) => {
         _id: mongoose.Types.ObjectId(),
         quantity: req.body.quantity,
         product: req.body.foodId,
-        name:product.name
+        
        
       });
       
