@@ -2,6 +2,7 @@ require("./models/User");
 require("./models/Food");
 require("./models/category");
 require('./models/cart')
+var session = require('express-session');
 const carts = require('./routes/cart')
 const morgan = require('morgan');
 const foodRouter = require("./routes/ItemRoute");
@@ -14,6 +15,8 @@ const deleteRoutes = require("./routes/deleteRoutes");
 const getRoutes = require("./routes/getRoutes");
 const categoryroute = require("./routes/subroutes/categoryroute");
 const getcategory = require("./routes/subroutes/getCategory");
+var MongoStore = require('connect-mongo')(session);
+
 
 const updateCategory = require("./routes/updateCategory");
 
@@ -29,6 +32,12 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Headers", "*");
   next();
 });
+app.use(session({
+  secret: 'mysupersecret',
+  resave: false,
+  saveUninitialized: false,
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
+}));
 
 
 app.use(morgan('dev'));
@@ -40,7 +49,10 @@ app.use(categoryroute);
 app.use(getcategory);
 app.use(updateCategory);
 app.use(authRoutes);
-
+app.use(function(req, res, next) {
+  res.locals.session = req.session;
+  next();
+});
 
 //for future code readibility
 app.use("/v1", foodRouter);

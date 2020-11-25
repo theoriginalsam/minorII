@@ -20,11 +20,13 @@ router.route("/cart").get(function (req, res) {
 });
 router.get('/add-to-cart/:id', function (req, res, next) {
   var foodId = req.params.id;
-  var cart = new Cart1();
+  console.log(req.session)
+  var cart = new Cart1(req.session.cart ? req.session.cart.items : {});
   
   Food.findById(foodId, function (err, product) {
     console.log(product.id)
       cart.add(product, product.id);
+      req.session.cart = cart;
       
       res.redirect('/');
   });
