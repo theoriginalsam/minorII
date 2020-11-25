@@ -10,10 +10,7 @@ let cart = new Schema({
         required: true,
         min: [1, 'Quantity can not be less then 1.']
     },
-    price: {
-        type: Number,
-        required: true
-    },
+   
     // total: {
     //     type: Number,
     //     required: true,
