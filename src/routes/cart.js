@@ -23,12 +23,15 @@ router.get('/add-to-cart/:id', function (req, res, next) {
   console.log(req.session)
   var cart = new Cart1(req.session.cart ? req.session.cart.items : {});
   
+  
   Food.findById(foodId, function (err, product) {
     console.log(product.id)
       cart.add(product, product.id);
       req.session.cart = cart;
+      console.log(cart.generateArray())
+
       
-      res.redirect('/');
+      res.redirect('/list');
   });
 });
 
