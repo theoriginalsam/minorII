@@ -12,12 +12,11 @@ const router = express.Router();
 router.route("/list").get(function (req, res) {
   Food.find({}, function (err, result) {
     if (err) {
-      console.log(err);
+      console.log("this");
     } else {
 
-      const category=Category.find({},(results)=>{
-        console.log(results)
-      })
+    const category = result.map(a=>a.category)
+
 
     let array = category.map(el =>{
     thisCatData = result.filter(menu => menu.category === el)
@@ -27,7 +26,7 @@ router.route("/list").get(function (req, res) {
     }
 
   })
-console.log(array)
+
   res.send(array);
   
 
