@@ -16,9 +16,10 @@ router.route("/list").get(function (req, res) {
     } else {
 
     const category = result.map(a=>a.category)
+    const uniq = [...new Set(category)];
+console.log(uniq)
 
-
-    let array = category.map(el =>{
+    let array = uniq.map(el =>{
     thisCatData = result.filter(menu => menu.category === el)
     return{
       category:el,
