@@ -69,7 +69,7 @@ mongoose.connect(mongoUri, {
   useCreateIndex: true,
   useUnifiedTopology: true,
 });
-mongoose.connection.on("connection successful", () => {
+mongoose.connection.on("connection successfull", () => {
   console.log("Connected to mongo ");
 });
 mongoose.connection.on("error", (err) => {
