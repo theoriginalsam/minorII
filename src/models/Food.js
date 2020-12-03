@@ -16,6 +16,14 @@ var ItemSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  descriprion:{
+    type:String,
+    required:true
+  },
+  ingredients:{
+    type:String,
+    required:true
+  },
   photo: {
     type: String,
     required: true,

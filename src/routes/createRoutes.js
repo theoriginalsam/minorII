@@ -16,6 +16,9 @@ router.post("/create", upload.single("photo"), async (req, res) => {
   // const photo = req.file.path;  //later for file
   const photo = req.body.photo;
   const price = req.body.price;
+  const description = req.body.description;
+  const ingredients = req.body.ingredients;
+  const photo = req.body.photo;
   //just create the api to store image path in the data base
   try {
     // Create model
@@ -25,6 +28,9 @@ router.post("/create", upload.single("photo"), async (req, res) => {
       category,
       photo,
       price,
+      description,
+      ingredients
+
     });
     //
     // Save
