@@ -12,7 +12,7 @@ const connectDB = async ()=>{
         
        
 
-        console.log(`Connected to URI on port `)
+        console.log(`Connected to URI `)
     }
     catch(err){
         console.log(err)
