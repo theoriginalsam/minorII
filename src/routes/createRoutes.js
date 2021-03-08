@@ -27,13 +27,13 @@ router.post("/create", upload.single("photo"), async (req, res) => {
   const description = req.body.description;
   const ingredients = req.body.ingredients;
 
-  fs.readFile(req.file.path,(err, contents)=> {
-    if (err) {
-    console.log('Error: ', err);
-   }else{
-    console.log('File contents ',contents);
-   }
-  });
+  // fs.readFile(req.file.path,(err, contents)=> {
+  //   if (err) {
+  //   console.log('Error: ', err);
+  //  }else{
+  //   console.log('File contents ',contents);
+  //  }
+  // });
   
   //just create the api to store image path in the data base
   try {
@@ -42,7 +42,8 @@ router.post("/create", upload.single("photo"), async (req, res) => {
     let model = new Food({
       name,
       category,
-      photo,
+      imageBase64String,
+      imageType,
       price,
       description,
       ingredients
