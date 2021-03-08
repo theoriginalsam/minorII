@@ -31,7 +31,7 @@ var ItemSchema = new mongoose.Schema({
 
   }
 });
-//time stamp add in the last
+//time stamp add in the last if required
 
 // ItemSchema.plugin(uniqueValidator, {
 //   message: "Error, expected {PATH} to be unique.",
