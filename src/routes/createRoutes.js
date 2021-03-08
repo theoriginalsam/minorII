@@ -25,7 +25,7 @@ router.post("/create", upload.single("photo"), async (req, res) => {
   const imageType = req.body.imageType
   const price = req.body.price;
   const description = req.body.description;
-  const ingredients = req.body.ingredients;
+  
 
   // fs.readFile(req.file.path,(err, contents)=> {
   //   if (err) {
@@ -46,7 +46,7 @@ router.post("/create", upload.single("photo"), async (req, res) => {
       imageType,
       price,
       description,
-      ingredients
+      
 
     });
     //

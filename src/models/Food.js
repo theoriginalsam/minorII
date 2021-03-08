@@ -20,10 +20,7 @@ var ItemSchema = new mongoose.Schema({
     type:String,
     required:true
   },
-  ingredients:{
-    type:String,
-    required:true
-  },
+ 
   imageBase64String: {
     type: String,
     required: true,
