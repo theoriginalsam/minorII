@@ -21,14 +21,9 @@ var ItemSchema = new mongoose.Schema({
     required:true
   },
  
-  imageBase64String: {
-    type: String,
-    required: true,
-  },
-  imageType:{
-    type: String,
-    required: true,
-
+  photo:{
+    type:String,
+    
   }
 });
 //time stamp add in the last if required

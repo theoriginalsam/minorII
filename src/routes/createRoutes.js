@@ -17,7 +17,7 @@ router.post("/create", upload.single("photo"), async (req, res) => {
  
  
  
-  // const photo = req.file.path;  //later for file
+  const photo = req.file.path;  //later for file
  
   //const photo = req.body.photo;
 
@@ -42,8 +42,7 @@ router.post("/create", upload.single("photo"), async (req, res) => {
     let model = new Food({
       name,
       category,
-      imageBase64String,
-      imageType,
+     photo,
       price,
       description,
       
