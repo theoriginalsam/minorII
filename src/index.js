@@ -61,7 +61,7 @@ app.use("/v1", foodRouter);
 const mongoUri =
   "mongodb+srv://samir:samir@cluster0.sj8rp.mongodb.net/eatry?retryWrites=true&w=majority";
 if (!mongoUri) {
-  throw new Error(`MongoURI Error `);
+  throw new Error(`MongoURI Error`);
 }
 mongoose.connect(mongoUri, {
   useNewUrlParser: true,
