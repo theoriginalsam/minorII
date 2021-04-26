@@ -14,7 +14,9 @@ router.put("/update/:_id", async (req, res) => {
     // Get dat
     const _id = req.params._id;
     let result = await Food.findByIdAndUpdate(
-      { _id },
+      {
+        _id,
+      },
       {
         ...req.body,
       }
@@ -31,10 +33,7 @@ router.put("/update/:_id", async (req, res) => {
   } catch (err) {
     //
     // Error response
-    res.send({
-      message: "item coul not be updated",
-      err: err,
-    });
+    res.send({ message: "item coul not be updated", err: err });
   }
 });
 
