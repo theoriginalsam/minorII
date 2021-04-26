@@ -9,15 +9,15 @@ const Cart1 = require("../models/cart1");
 
 const router = express.Router();
 
-// router.route("/cart").get(function (req, res) {
-//   Cart.find({}, function (err, result) {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       res.send(result);
-//     }
-//   });
-// });
+router.route("/cart").get(function (req, res) {
+  Cart.find({}, function (err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
 router.get("/add-to-cart/:id", function (req, res, next) {
   var foodId = req.params.id;
 
