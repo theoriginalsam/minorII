@@ -11,16 +11,16 @@ router.post("/addCategory", async (req, res) => {
   const name = req.body.name;
   try {
     // Create model
-    let model = new Category({
+    let data = new Category({
       name,
     });
     //
-   
-    await model.save();
+    console.log(data);
+    await data.save();
 
     res.send({
       message: "Category Created!",
-      model: model,
+      data: data,
     });
   } catch (err) {
     return res.status(422).send({ error: "Something went horrible wrong" });
