@@ -20,7 +20,7 @@ router.post("/addCategory", async (req, res) => {
 
     res.send(data);
   } catch (err) {
-    return res.status(422).send({ error: "Something went horrible wrong" });
+    return res.status(422).send({ error: "Something went wrong" });
   }
 });
 
