@@ -19,7 +19,7 @@ router.post("/addCategory", async (req, res) => {
     await data.save();
 
     res.send({
-      message: "Category Created!",
+      message: "Category Created",
       data: data,
     });
   } catch (err) {
