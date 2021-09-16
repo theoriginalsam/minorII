@@ -10,7 +10,7 @@ const Food = mongoose.model("Food");
 const router = express.Router();
 
 var upload = multer({ dest: "uploads/" });
-// work for the server sidee validation remain
+// work for the server side validation remain
 router.post("/create", upload.single("photo"), async (req, res) => {
   const name = req.body.name;
   const category = req.body.category;
