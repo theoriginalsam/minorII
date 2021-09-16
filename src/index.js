@@ -56,7 +56,7 @@ app.use(function(req, res, next) {
 
 //for future code readibility
 app.use("/v1", foodRouter);
-// same namshould e used in the front end form where we require image or select the image
+// same namshould e used in the frnt end form where we require image or select the image
 
 const mongoUri =
   
