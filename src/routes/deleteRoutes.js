@@ -39,5 +39,5 @@ router.delete("/delete/:_id", async (req, res) => {
   }
 });
 
-//route for delete
+//route for dele
 module.exports = router;
