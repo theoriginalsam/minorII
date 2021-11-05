@@ -19,9 +19,10 @@ const router = express.Router();
 // work for the server side validation remain
 router.post("/create", async (req, res) => {
   const name = req.body.name;
+  console.log(name);
   const category = req.body.category;
 
-  const photo = "https://minorii.herokuapp.com/" + genRanHex(12) + "image.jpg";
+  const photo = req.body.photo;
 
   const price = req.body.price;
   const description = req.body.description;

@@ -23,6 +23,7 @@ var ItemSchema = new mongoose.Schema({
 
   photo: {
     type: String,
+    required: true,
   },
 });
 //time stamp add in the last if required
