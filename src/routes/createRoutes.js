@@ -3,21 +3,25 @@ var fs = require("fs");
 
 const express = require("express");
 const mongoose = require("mongoose");
+const genRanHex = (size) =>
+  [...Array(size)]
+    .map(() => Math.floor(Math.random() * 16).toString(16))
+    .join("");
 
 var multer = require("multer");
+const { randomFill } = require("crypto");
 const Food = mongoose.model("Food");
 
 const router = express.Router();
 
-var upload = multer({ dest: "uploads/" });
+//var upload = multer({ dest: "uploads/" });  .....   upload.single("photo"), insert in btw create and async
+
 // work for the server side validation remain
-router.post("/create", upload.single("photo"), async (req, res) => {
+router.post("/create", async (req, res) => {
   const name = req.body.name;
   const category = req.body.category;
 
-  const loc = req.file.path;
-
-  const photo = "https://minorii.herokuapp.com/" + loc;
+  const photo = "https://minorii.herokuapp.com/" + genRanHex(12) + "image.jpg";
 
   const price = req.body.price;
   const description = req.body.description;
