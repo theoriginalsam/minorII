@@ -28,7 +28,7 @@ router.post("/create", upload.single("photo"), async (req, res) => {
     let model = new Food({
       name,
       category,
-      image: photo,
+      photo: photo,
       price,
       description,
     });

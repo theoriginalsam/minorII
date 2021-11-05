@@ -16,15 +16,14 @@ var ItemSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  description:{
-    type:String,
-    required:true
+  description: {
+    type: String,
+    required: true,
   },
- 
-  photo:{
-    type:String,
-    
-  }
+
+  photo: {
+    type: String,
+  },
 });
 //time stamp add in the last if required
 
