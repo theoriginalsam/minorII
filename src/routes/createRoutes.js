@@ -15,31 +15,20 @@ router.post("/create", upload.single("photo"), async (req, res) => {
   const name = req.body.name;
   const category = req.body.category;
 
-  const photo = req.file.path; // later for file
-  console.log(photo);
+  const photo = req.file.path;
+
   const location = "https://minorii.herokuapp.com/" + req.file.path;
-  console.log(location);
-  // const imageBase64String = req.body.imageBase64String;
-  // const imageType = req.body.imageType;
+
   const price = req.body.price;
   const description = req.body.description;
 
-  // fs.readFile(req.file.path, (err, contents) => {
-  // if (err) {
-  //     console.log("Error: ", err);
-  // } else {
-  //     console.log("File contents ", contents);
-  // }
-  // });
-
-  // just create the api to store image path in the data base
   try {
     // Create model
 
     let model = new Food({
       name,
       category,
-      photo: location,
+      image: location,
       price,
       description,
     });
