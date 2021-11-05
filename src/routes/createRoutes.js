@@ -15,9 +15,9 @@ router.post("/create", upload.single("photo"), async (req, res) => {
   const name = req.body.name;
   const category = req.body.category;
 
-  const photo = req.file.path;
+  const loc = req.file.path;
 
-  const location = "https://minorii.herokuapp.com/" + req.file.path;
+  const photo = "https://minorii.herokuapp.com/" + loc;
 
   const price = req.body.price;
   const description = req.body.description;
@@ -28,7 +28,7 @@ router.post("/create", upload.single("photo"), async (req, res) => {
     let model = new Food({
       name,
       category,
-      image: location,
+      image: photo,
       price,
       description,
     });
