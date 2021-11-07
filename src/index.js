@@ -1,10 +1,11 @@
 require("./models/User");
 require("./models/Food");
 require("./models/category");
-require('./models/cart')
-var session = require('express-session');
-const carts = require('./routes/cart')
-const morgan = require('morgan');
+require("./models/cart");
+require("./models/Users");
+var session = require("express-session");
+const carts = require("./routes/cart");
+const morgan = require("morgan");
 const foodRouter = require("./routes/ItemRoute");
 const express = require("express");
 const mongoose = require("mongoose");
@@ -15,8 +16,8 @@ const deleteRoutes = require("./routes/deleteRoutes");
 const getRoutes = require("./routes/getRoutes");
 const categoryroute = require("./routes/subroutes/categoryroute");
 const getcategory = require("./routes/subroutes/getCategory");
-var MongoStore = require('connect-mongo')(session);
-
+const gUser = require("./routes/gUser");
+var MongoStore = require("connect-mongo")(session);
 
 const updateCategory = require("./routes/updateCategory");
 
@@ -32,16 +33,17 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Headers", "*");
   next();
 });
-app.use(session({
-  secret: 'mysupersecret',
-  resave: false,
-  saveUninitialized: false,
-  store: new MongoStore({ mongooseConnection: mongoose.connection })
-}));
+app.use(
+  session({
+    secret: "mysupersecret",
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  })
+);
 
-
-app.use(morgan('dev'));
-app.use(carts)
+app.use(morgan("dev"));
+app.use(carts);
 app.use(createRoutes);
 app.use(deleteRoutes);
 app.use(getRoutes);
@@ -49,7 +51,8 @@ app.use(categoryroute);
 app.use(getcategory);
 app.use(updateCategory);
 app.use(authRoutes);
-app.use(function(req, res, next) {
+app.use(gUser);
+app.use(function (req, res, next) {
   res.locals.session = req.session;
   next();
 });
@@ -59,8 +62,7 @@ app.use("/v1", foodRouter);
 // same namshould e used in the frnt end form where we require image or select the image
 
 const mongoUri =
-  
- " mongodb+srv://samir:samir@cluster0.sj8rp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+  " mongodb+srv://samir:samir@cluster0.sj8rp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 if (!mongoUri) {
   throw new Error(`MongoURI Error`);
 }
@@ -77,7 +79,8 @@ mongoose.connection.on("error", (err) => {
   console.error("Error connecting to mongo DB ", err);
 });
 
-app.get("/", (req, res) => {  //requireAuth here in middle
+app.get("/", (req, res) => {
+  //requireAuth here in middle
   res.send(`Your email: ${req.user.email}`);
 });
 
