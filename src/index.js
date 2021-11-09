@@ -17,6 +17,7 @@ const getRoutes = require("./routes/getRoutes");
 const categoryroute = require("./routes/subroutes/categoryroute");
 const getcategory = require("./routes/subroutes/getCategory");
 const gUser = require("./routes/gUser");
+const gUserget = require("./routes/gUserget");
 var MongoStore = require("connect-mongo")(session);
 
 const updateCategory = require("./routes/updateCategory");
@@ -52,6 +53,7 @@ app.use(getcategory);
 app.use(updateCategory);
 app.use(authRoutes);
 app.use(gUser);
+app.use(gUserget);
 app.use(function (req, res, next) {
   res.locals.session = req.session;
   next();
