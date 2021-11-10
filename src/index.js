@@ -40,6 +40,10 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Headers", "*");
   next();
 });
+app.get("/cors", (req, res) => {
+  res.set("Access-Control-Allow-Origin", "*");
+  res.send({ msg: "This has CORS enabled 🎈" });
+});
 app.use(
   session({
     secret: "mysupersecret",
