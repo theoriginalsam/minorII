@@ -38,12 +38,32 @@ router.post("/order", async (req, res) => {
       customerPhone,
       status,
       cartTotalItems,
-      date: moment().format("MM:DD:YY HH:MM:SS a"),
+      date: moment().format("MMMM Do YYYY HH:MM:SS a"),
     });
 
     await model.save();
 
     res.send({ message: "Orders Confirmed", model: model });
+  } catch (err) {
+    if (err) {
+      console.log(err);
+    } else return res.send({ error: err.message });
+  }
+});
+router.post("/orderStatus", async (req, res) => {
+  try {
+    // Create model
+    const id = req.body._id;
+    const Nstatus = req.body.status;
+
+    let model = await Orders.updateOne(
+      { _id: id },
+      { $set: { status: Nstatus } }
+    );
+
+    await model.save();
+
+    res.send({ message: "Status Change", model: model });
   } catch (err) {
     if (err) {
       console.log(err);
