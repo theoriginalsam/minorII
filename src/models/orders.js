@@ -32,6 +32,7 @@ var OrderSchema = new mongoose.Schema({
   },
   totalCost: Number,
   status: String,
+  date: String,
 });
 
 module.exports = mongoose.model("Orders", OrderSchema);
