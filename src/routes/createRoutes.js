@@ -25,6 +25,7 @@ router.post("/create", async (req, res) => {
   const photo = req.body.photo;
 
   const price = req.body.price;
+
   const description = req.body.description;
 
   try {
@@ -50,6 +51,6 @@ router.post("/create", async (req, res) => {
   }
 });
 
-module.exports = router;
-
 // this has been implemented in the v1 so this file is unnecessary
+
+module.exports = router;

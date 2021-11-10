@@ -5,8 +5,10 @@ const Users = mongoose.model("Users");
 
 const router = express.Router();
 
-router.get("/enter", async (req, res) => {
-  Users.find({}, function (err, result) {
+router.get("/profile", async (req, res) => {
+  const email = req.body.email;
+  console.log(email);
+  Users.findOne({ email }, function (err, result) {
     if (err) {
       console.log(err);
     } else {

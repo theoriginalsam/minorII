@@ -3,6 +3,7 @@ require("./models/Food");
 require("./models/category");
 require("./models/cart");
 require("./models/Users");
+require("./models/reviews");
 var session = require("express-session");
 const carts = require("./routes/cart");
 const morgan = require("morgan");
@@ -12,6 +13,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const authRoutes = require("./routes/authRoutes");
 const createRoutes = require("./routes/createRoutes");
+const reviews = require("./routes/reviews");
+
 const deleteRoutes = require("./routes/deleteRoutes");
 const getRoutes = require("./routes/getRoutes");
 const categoryroute = require("./routes/subroutes/categoryroute");
@@ -54,6 +57,7 @@ app.use(updateCategory);
 app.use(authRoutes);
 app.use(gUser);
 app.use(gUserget);
+app.use(reviews);
 app.use(function (req, res, next) {
   res.locals.session = req.session;
   next();
