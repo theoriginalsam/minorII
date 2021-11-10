@@ -33,7 +33,7 @@ router.post("/profile", async (req, res) => {
   } catch (err) {
     //
     // Error response
-    res.send({ message: "user no  not be updated", err: err });
+    res.send({ message: "user not be updated", err: err });
   }
 });
 
