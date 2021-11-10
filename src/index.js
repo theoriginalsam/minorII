@@ -4,6 +4,7 @@ require("./models/category");
 require("./models/cart");
 require("./models/Users");
 require("./models/reviews");
+require("./models/orders")
 var session = require("express-session");
 const carts = require("./routes/cart");
 const morgan = require("morgan");
