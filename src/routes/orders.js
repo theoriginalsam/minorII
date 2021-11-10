@@ -61,7 +61,7 @@ router.post("/orderStatus", async (req, res) => {
       { $set: { status: Nstatus } }
     );
 
-    await model.save(function (err) {
+    model.save(function (err) {
       if (err) console.error(err);
 
       // Do not Check user info

@@ -8,17 +8,17 @@ const Users = mongoose.model("Users");
 
 const router = express.Router();
 
-router.post("/profile/:_id", async (req, res) => {
+router.post("/profile", async (req, res) => {
   try {
     //
     // Get dat
-    const _id = req.params._id;
+    const _id = req.body._id;
     let result = await Users.findByIdAndUpdate(
       {
         _id,
       },
       {
-        $set: { ...req.body },
+        ...req.body,
       }
     ).exec();
     const status = res.statusCode;

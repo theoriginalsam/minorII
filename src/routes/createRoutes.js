@@ -126,7 +126,7 @@ router.post("/rate", async (req, res) => {
     console.log(sum);
     const avg = sum / length;
     console.log({ avg });
-    let model = await Food.updateOne(
+    let model = await Food.findByIdAndUpdate(
       { _id: foodID },
       { $set: { rating: avg } }
     );
