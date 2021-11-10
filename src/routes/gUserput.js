@@ -18,7 +18,7 @@ router.post("/profile/:_id", async (req, res) => {
         _id,
       },
       {
-        ...req.body,
+        $set: { ...req.body },
       }
     ).exec();
     const status = res.statusCode;
