@@ -61,38 +61,55 @@ router.post("/rate", async (req, res) => {
   const review = {
     customerID,
     stars,
-    foodID,
   };
   // foodId use garera food ko detail { id , price , name , des , ratings ,rating}
   // check if ratings array { userid } pailai chha ki nai
   // rapeplace , ratings push
-  console.log(review);
 
-  const used = await Food.findById({ _id: foodID });
-  const isEdit =
-    used.ratings.filter((el) => el.customerID === customerID).length > 0;
+  const used = await Food.findById({ _id: foodID }, async (err, result) => {
+    console.log(result);
+    const isEdit =
+      result.ratings.filter((el) => el.customerID === customerID).length > 0;
+    if (isEdit) {
+      try {
+        // Create model
 
-  try {
-    // Create model
+        let model = await Food.updateOne(
+          { _id: foodID },
+          { $pop: { ratings }, $push: { ratings: review } }
+        );
 
-    let model = await Food.updateOne(
-      { _id: foodID },
-      { $push: { review: review } }
-    );
+        await model.save();
 
-    //
-    // Save
-    console.log(model);
-    await model.save();
+        res.send({ message: "Review Done Created", model: model });
+      } catch (err) {
+        if (err) {
+          res.send(err);
+        }
+        // this is another alternative to the unuqueValidator
+        else res.send({ error: err });
+      }
+    } else {
+      try {
+        // Create model
 
-    res.send({ message: "Review Done Created", model: model });
-  } catch (err) {
-    if (err) {
-      res.send(err);
+        let model = await Food.updateOne(
+          { _id: foodID },
+          { $push: { ratings: review } }
+        );
+
+        await model.save();
+
+        res.send({ message: "Review Done Created", model: model });
+      } catch (err) {
+        if (err) {
+          res.send(err);
+        }
+        // this is another alternative to the unuqueValidator
+        else res.send({ error: err });
+      }
     }
-    // this is another alternative to the unuqueValidator
-    else res.send({ error: err });
-  }
+  });
 });
 
 // this has been implemented in the v1 so this file is unnecessary
