@@ -37,6 +37,8 @@ router.post("/create", async (req, res) => {
       photo: photo,
       price,
       description,
+      ratings: [],
+      rating: 0,
     });
     //
     // Save
@@ -61,17 +63,26 @@ router.post("/rate", async (req, res) => {
     stars,
     foodID,
   };
+  // foodId use garera food ko detail { id , price , name , des , ratings ,rating}
+  // check if ratings array { userid } pailai chha ki nai
+  // rapeplace , ratings push
+  console.log(review);
+
+  const used = await Food.findById({ _id: foodID });
+  const isEdit =
+    used.ratings.filter((el) => el.customerID === customerID).length > 0;
+
   try {
     // Create model
 
-    let model = await Food.findByIdAndUpdate(
-      { foodID },
-      {
-        review,
-      }
+    let model = await Food.updateOne(
+      { _id: foodID },
+      { $push: { review: review } }
     );
+
     //
     // Save
+    console.log(model);
     await model.save();
 
     res.send({ message: "Review Done Created", model: model });
@@ -80,7 +91,7 @@ router.post("/rate", async (req, res) => {
       res.send(err);
     }
     // this is another alternative to the unuqueValidator
-    else res.send({ error: err.message });
+    else res.send({ error: err });
   }
 });
 

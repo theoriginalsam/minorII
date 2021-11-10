@@ -4,7 +4,7 @@ require("./models/category");
 require("./models/cart");
 require("./models/Users");
 require("./models/reviews");
-require("./models/orders")
+require("./models/orders");
 var session = require("express-session");
 const carts = require("./routes/cart");
 const morgan = require("morgan");
@@ -34,7 +34,7 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET ,POST,PUT,DELETE");
+  res.setHeader("Access-Control-Allow-Methods", "*");
   res.setHeader("Access-Control-Allow-Headers", "*");
   next();
 });
