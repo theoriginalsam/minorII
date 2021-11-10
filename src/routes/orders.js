@@ -4,7 +4,7 @@ const moment = require("moment");
 
 const express = require("express");
 const mongoose = require("mongoose");
-const Orders = require("../models/orders");
+var Orders = mongoose.model("Orders");
 const Food = mongoose.model("Food");
 const router = express.Router();
 
@@ -56,14 +56,18 @@ router.post("/orderStatus", async (req, res) => {
     const id = req.body._id;
     const Nstatus = req.body.status;
 
-    let model = await Orders.updateOne(
+    let model = await Orders.findByIdAndUpdate(
       { _id: id },
       { $set: { status: Nstatus } }
     );
 
-    await model.save();
+    await model.save(function (err) {
+      if (err) console.error(err);
 
-    res.send({ message: "Status Change", model: model });
+      // Do not Check user info
+    });
+
+    res.send({ message: "Status Changed", model: model });
   } catch (err) {
     if (err) {
       console.log(err);
