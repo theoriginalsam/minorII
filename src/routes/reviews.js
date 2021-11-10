@@ -50,12 +50,9 @@ router.post("/add-review", async (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      console.log("this is the data" + result);
+      console.log(result);
     }
   });
-  console.log("ao");
-  const array = reviews.stars;
-  console.log(array);
 });
 
 module.exports = router;
