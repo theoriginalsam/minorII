@@ -30,7 +30,6 @@ var OrderSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  totalCost: Number,
   status: String,
   date: String,
 });

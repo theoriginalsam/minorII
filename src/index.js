@@ -5,6 +5,7 @@ require("./models/cart");
 require("./models/Users");
 require("./models/reviews");
 require("./models/orders");
+
 var session = require("express-session");
 const carts = require("./routes/cart");
 const morgan = require("morgan");
@@ -22,6 +23,7 @@ const categoryroute = require("./routes/subroutes/categoryroute");
 const getcategory = require("./routes/subroutes/getCategory");
 const gUser = require("./routes/gUser");
 const gUserget = require("./routes/gUserget");
+const Orders = require("./routes/orders");
 var MongoStore = require("connect-mongo")(session);
 
 const updateCategory = require("./routes/updateCategory");
@@ -59,6 +61,7 @@ app.use(authRoutes);
 app.use(gUser);
 app.use(gUserget);
 app.use(reviews);
+app.use(Orders);
 app.use(function (req, res, next) {
   res.locals.session = req.session;
   next();
