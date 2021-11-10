@@ -8,6 +8,15 @@ const Orders = require("../models/orders");
 const Food = mongoose.model("Food");
 const router = express.Router();
 
+router.get("/order", async (req, res) => {
+  Orders.find({}, function (err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
 router.post("/order", async (req, res) => {
   try {
     // Create model
