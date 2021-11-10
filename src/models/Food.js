@@ -25,6 +25,12 @@ var ItemSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  ratings: {
+    customerID: String,
+    FoodID: String,
+    stars: Number,
+  },
+  rating: Number,
 });
 //time stamp add in the last if required
 

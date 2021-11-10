@@ -51,6 +51,39 @@ router.post("/create", async (req, res) => {
   }
 });
 
+router.post("/rate", async (req, res) => {
+  const customerID = req.body.customerID;
+
+  const foodID = req.body.foodID;
+  const stars = req.body.stars;
+  const review = {
+    customerID,
+    stars,
+    foodID,
+  };
+  try {
+    // Create model
+
+    let model = await Food.findByIdAndUpdate(
+      { foodID },
+      {
+        review,
+      }
+    );
+    //
+    // Save
+    await model.save();
+
+    res.send({ message: "Review Done Created", model: model });
+  } catch (err) {
+    if (err) {
+      res.send(err);
+    }
+    // this is another alternative to the unuqueValidator
+    else res.send({ error: err.message });
+  }
+});
+
 // this has been implemented in the v1 so this file is unnecessary
 
 module.exports = router;
