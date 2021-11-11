@@ -23,6 +23,7 @@ const categoryroute = require("./routes/subroutes/categoryroute");
 const getcategory = require("./routes/subroutes/getCategory");
 const gUser = require("./routes/gUser");
 const gUserget = require("./routes/gUserget");
+const gUserPut = require("./routes/gUserput");
 const Orders = require("./routes/orders");
 var MongoStore = require("connect-mongo")(session);
 
@@ -66,6 +67,7 @@ app.use(gUser);
 app.use(gUserget);
 app.use(reviews);
 app.use(Orders);
+app.use(gUserPut);
 app.use(function (req, res, next) {
   res.locals.session = req.session;
   next();

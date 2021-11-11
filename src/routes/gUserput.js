@@ -8,7 +8,7 @@ const Users = mongoose.model("Users");
 
 const router = express.Router();
 
-router.post("/profile", async (req, res) => {
+router.post("/profileU", async (req, res) => {
   try {
     //
     // Get dat
