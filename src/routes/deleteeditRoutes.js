@@ -8,6 +8,35 @@ const Food = mongoose.model("Food");
 
 const router = express.Router();
 
+router.post("/edit/:_id", async (req, res) => {
+  try {
+    //
+    // Get data
+    const id = req.params._id;
+
+    let result = await Food.findByIdAndUpdate(
+      { _id: id },
+      {
+        ...req.body,
+      }
+    ).exec();
+    const status = res.statusCode;
+
+    //
+    // Response
+    res.send({
+      message: "Sucessfully updated item",
+      result: result,
+      status: status,
+    });
+  } catch (err) {
+    res.send({
+      message: "Could not update ",
+      err: err,
+    });
+  }
+});
+
 //id is required to delete
 
 router.delete("/delete/:_id", async (req, res) => {

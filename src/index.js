@@ -17,7 +17,7 @@ const authRoutes = require("./routes/authRoutes");
 const createRoutes = require("./routes/createRoutes");
 const reviews = require("./routes/reviews");
 
-const deleteRoutes = require("./routes/deleteRoutes");
+const deleteeditRoutes = require("./routes/deleteeditRoutes");
 const getRoutes = require("./routes/getRoutes");
 const categoryroute = require("./routes/subroutes/categoryroute");
 const getcategory = require("./routes/subroutes/getCategory");
@@ -57,7 +57,7 @@ app.use(
 app.use(morgan("dev"));
 app.use(carts);
 app.use(createRoutes);
-app.use(deleteRoutes);
+app.use(deleteeditRoutes);
 app.use(getRoutes);
 app.use(categoryroute);
 app.use(getcategory);
