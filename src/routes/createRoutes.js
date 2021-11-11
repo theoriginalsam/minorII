@@ -88,7 +88,7 @@ router.post("/rate", async (req, res) => {
 
         await model.save();
 
-        res.send({ message: "Review Done Created", model: model });
+        console.log("OK");
       } catch (err) {
         if (err) {
           res.send(err);
@@ -107,7 +107,7 @@ router.post("/rate", async (req, res) => {
 
         await model.save();
 
-        res.send({ message: "Review Done Created", model: model });
+        console.log("OK");
       } catch (err) {
         if (err) {
           res.send(err);
@@ -116,21 +116,28 @@ router.post("/rate", async (req, res) => {
         else res.send({ error: err });
       }
     }
+    try {
+      const length = result.ratings.length;
+      let sum = 0;
+      let arr = result.ratings;
+      for (const el in arr) {
+        sum = sum + arr[el].stars;
+      }
+      console.log(sum);
+      const avg = sum / length;
+      console.log({ avg });
+      let model = await Food.findByIdAndUpdate(
+        { _id: foodID },
+        { $set: { rating: avg } }
+      );
+      await model.save();
 
-    const length = result.ratings.length;
-    let sum = 0;
-    let arr = result.ratings;
-    for (const el in arr) {
-      sum = sum + arr[el].stars;
+      res.send;
+    } catch (err) {
+      if (err) {
+        res.send(err);
+      }
     }
-    console.log(sum);
-    const avg = sum / length;
-    console.log({ avg });
-    let model = await Food.findByIdAndUpdate(
-      { _id: foodID },
-      { $set: { rating: avg } }
-    );
-    await model.save();
   });
 });
 
